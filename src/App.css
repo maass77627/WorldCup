@@ -1,38 +1,80 @@
 .App {
   text-align: center;
+  background-color: rgb(15, 1, 55);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  color: white;
+  text-decoration: none;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  width: 100%;
+  background-color: rgb(8, 8, 73);
+  height: auto;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-around;
+   /* text-align: center; */
+   color: white;
+   width: 100%;
+   background-image: url("./assets/worldcupbg.webp");
+   background-repeat: no-repeat;
+   background-size: 100%;
+   background-position: center;
+   height: 300px;
+  
+}
+
+.hero-text {
+  text-align: left;
+  width: 80%;
+}
+
+.hero-button {
+  border-radius: 15px;
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(15, 15, 113);
+}
+
+.total-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: aliceblue;
+gap: 10px;
+}
+
+.total-div {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: antiquewhite;
+  box-shadow: 2 12 12 black;
+  width: 100%;
+  gap: 15px;
+
 }
 
-.App-link {
-  color: #61dafb;
+.total-icon {
+font-size: 60px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.upcoming-matches {
+  width: 70%;
+}
+
+.total-text {
+
 }
