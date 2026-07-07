@@ -10,9 +10,9 @@ function Nav() {
             <h3>  <FaTrophy /> World Cup Tracker 2026</h3>
             {/* <div classname="links"> */}
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/">Teams</NavLink>
-            <NavLink to="/">Players</NavLink>
-            <NavLink to="/">Matches</NavLink>
+            <NavLink to="/teams">Teams</NavLink>
+            <NavLink to="/players">Players</NavLink>
+            <NavLink to="/matches">Matches</NavLink>
             {/* </div> */}
         </nav>
     )

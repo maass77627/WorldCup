@@ -6,11 +6,20 @@ import Hero from "./Hero";
 import { useState, useEffect} from "react";
 import TotalSection from './TotalSection';
 import UpcomingMatches from './UpcomingMatches';
+import TeamsPage from './TeamsPage';
+import Home from "./Home";
+import TeamDetailPage from "./TeamDetailPage";
+import PlayersPage from './PlayersPage';
+import MatchesPage from "./MatchesPage";
+// import { useParams } from 'react-router-dom/dist';
 
 function App() {
 const [teams, setTeams] = useState([])
 const [matches, setMatches] = useState([])
 const [players, setPlayers] = useState([])
+const [stats, setStats] = useState([])
+
+
 
 useEffect(() => {
 fetch("http://localhost:9292/teams")
@@ -39,6 +48,15 @@ fetch("http://localhost:9292/matches")
 })
 }, [])
 
+useEffect(() => {
+fetch("http://localhost:9292/stats")
+.then((res) => res.json())
+.then((json) => {
+  console.log(json)
+  setStats(json)
+})
+}, [])
+
 
 
 
@@ -47,13 +65,16 @@ fetch("http://localhost:9292/matches")
       
       
       <BrowserRouter>
-      <Nav></Nav>
-      <Hero></Hero>
-      <TotalSection teams={teams} matches={matches}></TotalSection>
-      <UpcomingMatches></UpcomingMatches>
-      <Routes>
-      <Route></Route>
+       <Nav></Nav>
+     
 
+
+      <Routes>
+      <Route path="/" element={<Home stats={stats} teams={teams} matches={matches}></Home>}></Route>
+      <Route path="/teams" element={<TeamsPage teams={teams}></TeamsPage>}></Route>
+      <Route path="/team/:id" element={<TeamDetailPage teams={teams} ></TeamDetailPage>}></Route>
+      <Route path="/players" element={<PlayersPage players={players}></PlayersPage>}></Route>
+      <Route path="/matches" element={<MatchesPage matches={matches}></MatchesPage>}></Route>
 
 
       </Routes>

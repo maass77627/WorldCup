@@ -3,8 +3,8 @@ import { PiSoccerBallFill } from "react-icons/pi";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
 
-function TotalSection({teams, matches}) {
-
+function TotalSection({teams, matches, stats}) {
+console.log(stats)
 
 
     return (
@@ -28,7 +28,7 @@ function TotalSection({teams, matches}) {
             <div className="total-div">
                 <FaRegCalendarAlt className="total-icon" />
                <div className="total-text">
-                <h1>{100}</h1>
+                <h1>{stats.days_left}</h1>
                 <p>Days of Football</p>
                 </div>
             </div>
