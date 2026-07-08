@@ -19,13 +19,13 @@ function TeamDetailPlayers({team}) {
         <table className="players-table">
             
             <thead>
-                
+                <tr>
                 <td>Age</td>
                 <td>Name</td>
                 <td>Position</td>
                 <td>Jersey Number</td>
                 <td>Actions</td>
-                
+                </tr>
             </thead>
             
             <tbody>

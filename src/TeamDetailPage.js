@@ -2,8 +2,9 @@ import {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import TeamDetailHeader from "./TeamDetailHeader"
 import TeamDetailPlayers from "./TeamDetailPlayers";
+import TeamDetailMatches from "./TeamDetailMatches";
 
-function TeamDetailPage() {
+function TeamDetailPage({teams}) {
     const [team, setTeam] = useState(null)
     const { id } = useParams()
 
@@ -24,7 +25,7 @@ return (
 
         <TeamDetailHeader team={team}></TeamDetailHeader>
         <TeamDetailPlayers team={team}></TeamDetailPlayers>
-
+         <TeamDetailMatches teams={teams} team={team}></TeamDetailMatches>
     </div>
 
 )

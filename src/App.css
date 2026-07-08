@@ -251,3 +251,23 @@ font-size: 60px;
 
 }
 
+.team-detail-matches-head {
+   border-style: solid;
+  border-color: rgb(121, 116, 161);
+  background-color: white;
+  color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.matches-table {
+  border-style: solid;
+  border-color: rgb(121, 116, 161);
+  color: rgb(3, 3, 88);
+  width: 100%;
+  background-color: rgb(245, 248, 247);
+}
+
+
