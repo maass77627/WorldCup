@@ -22,7 +22,13 @@ const [teamFilter, setTeamFilter] = useState(null)
 
 
 
+function addTeam(team) {
+  console.log("adding team")
+  setTeams((prev) => [...prev, team])
+}
+
 function addPlayer(player) {
+  console.log("adding player")
   setPlayers((prev) => [...prev, player])
 }
 
@@ -76,8 +82,8 @@ fetch("http://localhost:9292/stats")
 
       <Routes>
       <Route path="/" element={<Home stats={stats} teams={teams} matches={matches}></Home>}></Route>
-      <Route path="/teams" element={<TeamsPage addPlayer={addPlayer} teamFilter={teamFilter} setTeamFilter={setTeamFilter} teams={teams}></TeamsPage>}></Route>
-      <Route path="/team/:id" element={<TeamDetailPage teams={teams} ></TeamDetailPage>}></Route>
+      <Route path="/teams" element={<TeamsPage addTeam={addTeam} teamFilter={teamFilter} setTeamFilter={setTeamFilter} teams={teams}></TeamsPage>}></Route>
+      <Route path="/team/:id" element={<TeamDetailPage addPlayer={addPlayer} teams={teams} ></TeamDetailPage>}></Route>
       <Route path="/players" element={<PlayersPage players={players}></PlayersPage>}></Route>
       <Route path="/matches" element={<MatchesPage matches={matches}></MatchesPage>}></Route>
 

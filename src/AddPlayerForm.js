@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AddPlayerForm({team}) {
+function AddPlayerForm({team, addPlayer, setTogglePlayerForm}) {
 
     const [formData, setFormData] = useState({
         name: "",
@@ -18,6 +18,7 @@ function AddPlayerForm({team}) {
 
 function handleSubmit(e) {
     e.preventDefault()
+    
     console.log("submitting form")
     fetch("http://localhost:9292/players", {
         method: "POST",
@@ -29,7 +30,10 @@ function handleSubmit(e) {
     .then((res) => res.json())
     .then((json) => {
         console.log(json)
+        addPlayer(json)
+
     })
+    setTogglePlayerForm(false)
 }
 
 

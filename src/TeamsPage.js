@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import { useState } from "react";
 import AddTeamForm from "./AddTeamForm";
 
-function TeamsPage({teams, setTeamFilter, teamFilter}) {
+function TeamsPage({teams, setTeamFilter, teamFilter, addTeam}) {
  const [toggle, setToggle] = useState(false)
   let updatedTeams = teamFilter ? teams.filter((team) => team.name.toLowerCase().includes(teamFilter.toLowerCase())) : teams
 
@@ -25,7 +25,7 @@ function TeamsPage({teams, setTeamFilter, teamFilter}) {
             </Link>
         )}
           </main>
-          {toggle && <AddTeamForm></AddTeamForm>}
+          {toggle && <AddTeamForm setToggle={setToggle} addTeam={addTeam}></AddTeamForm>}
         </div>
         
     )

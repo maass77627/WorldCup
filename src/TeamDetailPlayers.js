@@ -2,7 +2,7 @@
 import { useState } from "react";
 import AddPlayerForm from "./AddPlayerForm";
 
-function TeamDetailPlayers({team}) {
+function TeamDetailPlayers({team, addPlayer}) {
     console.log(team)
 const [togglePlayerForm, setTogglePlayerForm] = useState(false)
 
@@ -48,7 +48,7 @@ const [togglePlayerForm, setTogglePlayerForm] = useState(false)
         </table>
 
 
-        {togglePlayerForm && (<AddPlayerForm team={team}></AddPlayerForm>)}
+        {togglePlayerForm && (<AddPlayerForm setTogglePlayerForm={setTogglePlayerForm} addPlayer={addPlayer} team={team}></AddPlayerForm>)}
         </div>
     )
 }
