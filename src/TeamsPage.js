@@ -1,17 +1,17 @@
 import TeamHeader from "./TeamHeader"
 import {Link} from "react-router-dom"
 
-function TeamsPage({teams}) {
+function TeamsPage({teams, setTeamFilter, teamFilter}) {
 
-
+  let updatedTeams = teamFilter ? teams.filter((team) => team.name.toLowerCase().includes(teamFilter.toLowerCase())) : teams
 
     return (
         
         <div className="teams-page">
-            <TeamHeader teams={teams}></TeamHeader>
+            <TeamHeader setTeamFilter={setTeamFilter} teams={teams}></TeamHeader>
           <main className="team-main">
             
-            {teams.map((team) => 
+            {updatedTeams.map((team) => 
             <Link key={team.id} to={`/team/${team.id}`}>
             <div key={team.id} className="team-card">
                 <img src={`https://flagsapi.com/${team.flag_code}/flat/64.png`}></img>

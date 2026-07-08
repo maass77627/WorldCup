@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 
-function TeamSearch() {
-const [search, setSearch] = useState("")
+function TeamSearch({setTeamFilter}) {
+// const [teamFilter, setTeamFilter] = useState("")
     // function handleChange()
 
 
 
     return (
-        <input className="input" onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search teams.."></input>
+        <input className="input" onChange={(e) => setTeamFilter(e.target.value)} type="text" placeholder="Search teams.."></input>
     )
 }
 

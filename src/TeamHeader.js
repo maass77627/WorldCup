@@ -3,7 +3,7 @@ import TeamSearch from "./TeamSearch";
 
 
 
-function TeamHeader({teams}) {
+function TeamHeader({teams, setTeamFilter}) {
 
 
 
@@ -13,7 +13,7 @@ function TeamHeader({teams}) {
             <h1>All Teams</h1>
             <p>{teams.length} Teams Competing</p>
             </div>
-            <TeamSearch></TeamSearch>
+            <TeamSearch setTeamFilter={setTeamFilter}></TeamSearch>
             <button className="add-team-button">+ Add Team</button>
         </header>
 
