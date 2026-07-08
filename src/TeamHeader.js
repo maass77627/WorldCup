@@ -3,7 +3,7 @@ import TeamSearch from "./TeamSearch";
 
 
 
-function TeamHeader({teams, setTeamFilter}) {
+function TeamHeader({teams, setTeamFilter, setToggle, toggle}) {
 
 
 
@@ -14,7 +14,7 @@ function TeamHeader({teams, setTeamFilter}) {
             <p>{teams.length} Teams Competing</p>
             </div>
             <TeamSearch setTeamFilter={setTeamFilter}></TeamSearch>
-            <button className="add-team-button">+ Add Team</button>
+            <button onClick={() => setToggle(!toggle)} className="add-team-button">+ Add Team</button>
         </header>
 
 

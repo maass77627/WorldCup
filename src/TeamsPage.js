@@ -1,14 +1,16 @@
 import TeamHeader from "./TeamHeader"
 import {Link} from "react-router-dom"
+import { useState } from "react";
+import AddTeamForm from "./AddTeamForm";
 
 function TeamsPage({teams, setTeamFilter, teamFilter}) {
-
+ const [toggle, setToggle] = useState(false)
   let updatedTeams = teamFilter ? teams.filter((team) => team.name.toLowerCase().includes(teamFilter.toLowerCase())) : teams
 
     return (
         
         <div className="teams-page">
-            <TeamHeader setTeamFilter={setTeamFilter} teams={teams}></TeamHeader>
+            <TeamHeader toggle={toggle} setToggle={setToggle} setTeamFilter={setTeamFilter} teams={teams}></TeamHeader>
           <main className="team-main">
             
             {updatedTeams.map((team) => 
@@ -23,6 +25,7 @@ function TeamsPage({teams, setTeamFilter, teamFilter}) {
             </Link>
         )}
           </main>
+          {toggle && <AddTeamForm></AddTeamForm>}
         </div>
         
     )

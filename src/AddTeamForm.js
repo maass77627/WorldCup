@@ -19,11 +19,22 @@ function handleChange(e) {
 function handleSubmit(e) {
     e.preventDefault()
     console.log("submitting form")
+    fetch("http://localhost:9292/teams", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then((res) => res.json())
+    .then((json) => {
+        console.log(json)
+    })
 }
 
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form className="add-team-form" onSubmit={(e) => handleSubmit(e)}>
             <input onChange={(e) => handleChange(e)} name="name" type="text" value={formData.name}></input>
             <input onChange={(e) => handleChange(e)} name = "group_name" type="text" value={formData.group_name}></input>
             <input onChange={(e) => handleChange(e)} name="flag_code" type="text" value={formData.flag_code}></input>

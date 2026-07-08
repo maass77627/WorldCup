@@ -283,4 +283,17 @@ font-size: 60px;
   flex-direction: column;
 }
 
+.add-team-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: cadetblue;
+  border-radius: 25px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
 

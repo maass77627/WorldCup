@@ -22,6 +22,10 @@ const [teamFilter, setTeamFilter] = useState(null)
 
 
 
+function addPlayer(player) {
+  setPlayers((prev) => [...prev, player])
+}
+
 useEffect(() => {
 fetch("http://localhost:9292/teams")
 .then((res) => res.json())
@@ -72,7 +76,7 @@ fetch("http://localhost:9292/stats")
 
       <Routes>
       <Route path="/" element={<Home stats={stats} teams={teams} matches={matches}></Home>}></Route>
-      <Route path="/teams" element={<TeamsPage teamFilter={teamFilter} setTeamFilter={setTeamFilter} teams={teams}></TeamsPage>}></Route>
+      <Route path="/teams" element={<TeamsPage addPlayer={addPlayer} teamFilter={teamFilter} setTeamFilter={setTeamFilter} teams={teams}></TeamsPage>}></Route>
       <Route path="/team/:id" element={<TeamDetailPage teams={teams} ></TeamDetailPage>}></Route>
       <Route path="/players" element={<PlayersPage players={players}></PlayersPage>}></Route>
       <Route path="/matches" element={<MatchesPage matches={matches}></MatchesPage>}></Route>
