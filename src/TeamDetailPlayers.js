@@ -1,8 +1,10 @@
-
+// import {Link} from "react-router-dom";
+import { useState } from "react";
+import AddPlayerForm from "./AddPlayerForm";
 
 function TeamDetailPlayers({team}) {
     console.log(team)
-
+const [togglePlayerForm, setTogglePlayerForm] = useState(false)
 
 
 
@@ -14,7 +16,9 @@ function TeamDetailPlayers({team}) {
         <div className="team-detail-players">
         <header className="team-detail-players-head">
             <h1>Players</h1>
-            <button className="add-player-button">+ Add Player</button>
+            
+            <button onClick={() => setTogglePlayerForm(!togglePlayerForm)} className="add-player-button">+ Add Player</button>
+            
         </header>
         <table className="players-table">
             
@@ -38,12 +42,13 @@ function TeamDetailPlayers({team}) {
 
                 </tr>
                 ))}
-                {/* <tr>
-
-                </tr> */}
+               
 
             </tbody>
         </table>
+
+
+        {togglePlayerForm && (<AddPlayerForm team={team}></AddPlayerForm>)}
         </div>
     )
 }

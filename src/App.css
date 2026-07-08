@@ -270,4 +270,17 @@ font-size: 60px;
   background-color: rgb(245, 248, 247);
 }
 
+.player-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+ transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: cadetblue;
+  border-radius: 25px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
 
