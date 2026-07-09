@@ -1,8 +1,8 @@
 import PlayerHeader from "./PlayerHeader"
 
-function PlayersPage({players, setPlayerSearch}) {
+function PlayersPage({players, setPlayerSearch, playerSearch}) {
 
-
+const filteredPlayers = playerSearch ? players.filter((player) => player.name.toLowerCase().includes(playerSearch.toLowerCase())) : players
 
     return (
         <div className="players-page">
@@ -19,11 +19,11 @@ function PlayersPage({players, setPlayerSearch}) {
             </thead>
             <tbody>
                 {
-                    players.map((play) => (
-                        <tr>
+                    filteredPlayers.slice(0,10).map((play) => (
+                        <tr key={play.id}>
                 <td>{play.age}</td>
                 <td>{play.name}</td>
-                <td>{play.team}</td>
+                <td>{play.team.name}</td>
                 <td>{play.position}</td>
                 <td>{play.number}</td>
                </tr>

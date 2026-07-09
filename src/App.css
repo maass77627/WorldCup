@@ -337,4 +337,8 @@ font-size: 60px;
   background-color: white;
 }
 
+.player-table tr {
+  height: 50px;
+}
+
 
