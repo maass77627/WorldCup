@@ -31,7 +31,7 @@ function MatchesPage({matches}) {
                                         </td>
                                     <td><div className="match-wrap"><img src={`https://flagsapi.com/${match.away_team.flag_code}/flat/64.png`}></img>{match.away_team.name}</div></td>
                                     <td>{match.stadium}</td>
-                                    <td>{}</td>
+                                    <td>{match.home_score} - {match.away_score}</td>
                                     <td>{}</td>
                                 </tr>
                             ))
