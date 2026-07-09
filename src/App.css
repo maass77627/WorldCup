@@ -237,6 +237,22 @@ font-size: 60px;
   border-radius: 25px;
 }
 
+.add-match-button {
+  font-weight: bold;
+  color: white;
+  background-color: rgb(33, 33, 90);
+  height: 50px;
+  border-radius: 25px;
+}
+
+.edit-team-button {
+  font-weight: bold;
+  color: white;
+  background-color: rgb(33, 33, 90);
+  height: 50px;
+  border-radius: 25px;
+}
+
 .players-table {
   border-style: solid;
   border-color: rgb(121, 116, 161);
@@ -294,6 +310,31 @@ font-size: 60px;
   padding: 50px;
   display: flex;
   flex-direction: column;
+}
+
+.team-edit-form {
+   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: cadetblue;
+  border-radius: 25px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.player-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.player-table {
+  width: 100%;
+  background-color: white;
 }
 
 

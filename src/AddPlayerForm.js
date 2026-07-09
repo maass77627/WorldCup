@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function AddPlayerForm({team, addPlayer, setTogglePlayerForm}) {
-
+const [errors, setErrors] = useState([])
     const [formData, setFormData] = useState({
         name: "",
         position: "",
@@ -29,16 +29,25 @@ function handleSubmit(e) {
     })
     .then((res) => res.json())
     .then((json) => {
-        console.log(json)
-        addPlayer(json)
+        if (json.errors) {
+            setErrors(json.errors)
+        } else {
+            console.log(json)
+           addPlayer(json)
+           setTogglePlayerForm(false)
+        }
+       
 
     })
-    setTogglePlayerForm(false)
+    
 }
 
 
     return (
         <form className="player-form" onSubmit={(e) => handleSubmit(e)}>
+            {errors.map((error) => (
+                <p key={error.id}>{error}</p>
+            ))}
             <label>Name:</label>
             <input onChange={(e) => handleChange(e)} name="name"  value={formData.name} type="text"/>
             <label>Position:</label>

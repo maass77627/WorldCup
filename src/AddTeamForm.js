@@ -4,6 +4,7 @@ import { useState } from "react";
 
 
 function AddTeamForm({addTeam, setToggle}) {
+    const [errors, setErrors] = useState([])
 const [formData, setFormData] = useState({
     name: "",
     group_name: "",
@@ -28,16 +29,28 @@ function handleSubmit(e) {
     })
     .then((res) => res.json())
     .then((json) => {
-        console.log(json)
-        addTeam(json)
+        if (json.errors) {
+            setErrors(json.errors)
+        } else {
+          console.log(json)
+          setErrors([])
+          addTeam(json)
+          setToggle(false)
+        }
+       
         
     })
-    setToggle(false)
+    
 }
 
 
     return (
         <form className="add-team-form" onSubmit={(e) => handleSubmit(e)}>
+            {errors.map((error) => (
+        <p key={error}>
+            {error}
+        </p>
+    ))}
             <label>Name:</label>
             <input onChange={(e) => handleChange(e)} name="name" type="text" value={formData.name}></input>
              <label>Group Name:</label>

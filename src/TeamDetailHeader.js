@@ -1,7 +1,8 @@
-
+import {useState} from "react"
+import TeamEditForm from "./TeamEditForm";
 
 function TeamDetailHeader({team}) {
-
+const [editToggle, setEditToggle] = useState(false)
 
 
     return (
@@ -13,7 +14,8 @@ function TeamDetailHeader({team}) {
            <p>Fifa Rank: {team.fifa_rank}</p>
            <p>Group: {team.group_name}</p>
            </div>
-           <button className="edit-team-button">Edit Team</button>
+           <button onClick={() => setEditToggle(!editToggle)} className="edit-team-button">Edit Team</button>
+           {editToggle && <TeamEditForm team={team}></TeamEditForm>}
         </header>
     )
 }
