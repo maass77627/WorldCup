@@ -341,4 +341,12 @@ font-size: 60px;
   height: 50px;
 }
 
+.match-header {
+  background-color: white;
+  color:rgb(3, 3, 88);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 

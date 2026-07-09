@@ -1,11 +1,12 @@
+import MatchHeader from "./MatchHeader"
 
-
-function MatchesPage() {
+function MatchesPage({matches}) {
 
 
 
     return (
         <div className="matches-page">
+            <MatchHeader matches={matches}></MatchHeader>
 
         </div>
     )
