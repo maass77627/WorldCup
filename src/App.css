@@ -349,4 +349,28 @@ font-size: 60px;
   align-items: center;
 }
 
+.match-table {
+  background-color: white;
+  width: 100%;
+}
 
+.match-table thead {
+  font-weight: bold;
+}
+
+.match-table td {
+  vertical-align: middle;
+}
+
+.match-table tr {
+  
+
+  height: 50px;
+}
+
+.match-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
