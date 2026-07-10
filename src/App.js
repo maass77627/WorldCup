@@ -11,6 +11,7 @@ import Home from "./Home";
 import TeamDetailPage from "./TeamDetailPage";
 import PlayersPage from './PlayersPage';
 import MatchesPage from "./MatchesPage";
+import MatchDetailPage from './MatchDetailPage';
 // import { useParams } from 'react-router-dom/dist';
 
 function App() {
@@ -86,6 +87,7 @@ fetch("http://localhost:9292/stats")
       <Route path="/team/:id" element={<TeamDetailPage addPlayer={addPlayer} teams={teams} ></TeamDetailPage>}></Route>
       <Route path="/players" element={<PlayersPage playerSearch={playerSearch} setPlayerSearch={setPlayerSearch} players={players}></PlayersPage>}></Route>
       <Route path="/matches" element={<MatchesPage matches={matches}></MatchesPage>}></Route>
+       <Route path="/matchdetail/:id" element={<MatchDetailPage matches={matches}></MatchDetailPage>}></Route>
 
 
       </Routes>

@@ -6,7 +6,7 @@ import AddTeamForm from "./AddTeamForm";
 function TeamsPage({teams, setTeamFilter, teamFilter, addTeam}) {
  const [toggle, setToggle] = useState(false)
   let updatedTeams = teamFilter ? teams.filter((team) => team.name.toLowerCase().includes(teamFilter.toLowerCase())) : teams
-
+//    API_FOOTBALL_KEY=your_key_here
     return (
         
         <div className="teams-page">

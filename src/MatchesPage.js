@@ -1,5 +1,5 @@
 import MatchHeader from "./MatchHeader"
-
+import { Link } from "react-router-dom/dist"
 function MatchesPage({matches}) {
 
 
@@ -26,7 +26,11 @@ function MatchesPage({matches}) {
                                     <td>
                                         <div className="match-wrap">
                                         <img src={`https://flagsapi.com/${match.home_team.flag_code}/flat/64.png`}></img>
+                                        <div className="link-wrap">
+                                        <Link to={`/matchdetail/${match.id}`}>
                                         {match.home_team.name}
+                                        </Link>
+                                        </div>
                                         </div>
                                         </td>
                                     <td><div className="match-wrap"><img src={`https://flagsapi.com/${match.away_team.flag_code}/flat/64.png`}></img>{match.away_team.name}</div></td>

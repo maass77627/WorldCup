@@ -374,3 +374,36 @@ font-size: 60px;
   align-items: center;
   gap: 10px;
 }
+
+
+.link-wrap a{
+  color: rgb(3, 3, 59);
+}
+
+.link-wrap:hover {
+  background-color: yellowgreen;
+}
+
+.match-detail-header {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+}
+
+.match-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.match-score {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.match-time {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
