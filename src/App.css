@@ -374,3 +374,24 @@ font-size: 60px;
   align-items: center;
   gap: 10px;
 }
+
+.player-link:hover {
+color: green;
+}
+
+.player-link {
+  color: rgb(3, 3, 88);
+  text-decoration: none;
+}
+
+.player-detail-page {
+  width: 100%;
+  background-color: blueviolet;
+}
+
+
+@media (max-width: 450px) {
+  .nav {
+    flex-direction: column;
+  }
+}
