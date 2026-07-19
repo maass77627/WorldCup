@@ -1,30 +1,35 @@
 import { useParams } from "react-router-dom"
 import { useEffect } from "react"
+import PlayerDetailProfile from "./PlayerDetailProfile"
+import PlayerDetailRecentMatches from "./PlayerDetailRecentMatches"
+import PlayerDetailStatistics from "./PlayerDetailStatistics"
 
-function PlayerDetailPage({photo, players, getPlayerPhoto, setPhoto}) {
+function PlayerDetailPage({players}) {
 const {id} = useParams()
 
 const player = players.find((play) => play.id === Number(id))
 console.log(player)
 
-useEffect(() => {
-    setPhoto("")
-    if (player) {
-        const playername = player.name.split(" ").pop()
-        getPlayerPhoto(playername, player.name)
-    }
-}, [player])
+
+const imageSrc = player.photo_url
+  ? (player.photo_url.startsWith("/") ? player.photo_url : `/${player.photo_url}`) : "/default-player.png";
+
+console.log(player)
 
 
-console.log(photo)
+
     return (
         <div className="player-detail-page">
-           <h1>details</h1>
-            <p>{player.name}</p> 
-            {photo && <img src={photo} alt="player"></img>}
+          
+            <PlayerDetailProfile imageSrc={imageSrc}  player={player}></PlayerDetailProfile>
+            <PlayerDetailStatistics></PlayerDetailStatistics>
+            <PlayerDetailRecentMatches></PlayerDetailRecentMatches>
+        
         </div>
 
     )
 }
 
 export default PlayerDetailPage
+
+{/* <p>{player.team.name}</p> */}

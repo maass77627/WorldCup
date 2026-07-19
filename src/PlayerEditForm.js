@@ -1,7 +1,8 @@
-import { useState } from "react";
 
-function AddPlayerForm({team, addPlayer, setTogglePlayerForm}) {
-const [errors, setErrors] = useState([])
+import {useState} from "react";
+
+
+function PlayerEditForm({setPlayers, playerId}) {
     const [formData, setFormData] = useState({
         name: "",
         position: "",
@@ -11,46 +12,35 @@ const [errors, setErrors] = useState([])
     })
 
     function handleChange(e) {
-        console.log(e)
-        // let symbol = e.target.name
         setFormData((prev) => ({...prev, [e.target.name]: e.target.value}))
 
     }
 
-function handleSubmit(e) {
-    e.preventDefault()
-    
-    console.log("submitting form")
-    fetch("http://localhost:9292/players", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({...formData, team_id: team.id})
-    })
-    .then((res) => res.json())
-    .then((json) => {
-        if (json.errors) {
-            setErrors(json.errors)
-        } else {
+    function handleSubmit(e) {
+        e.preventDefault()
+        fetch(`http://localhost:9292/players/${playerId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then((res) => res.json())
+        .then((json) => {
             console.log(json)
-           addPlayer(json)
-           setTogglePlayerForm(false)
-        }
-       
+        })
+        
 
-    })
-    
-}
+    }
 
 
-    return (
-        <form className="player-form" onSubmit={(e) => handleSubmit(e)}>
-            <h3>Add Player</h3>
-            {errors.map((error) => (
-                <p key={error.id}>{error}</p>
-            ))}
-            <label>Name:</label>
+
+
+    return(
+
+        <form className="player-edit-form" onSubmit={() => handleSubmit()}>
+            <h3>Edit Player</h3>
+             <label>Name:</label>
             <input onChange={(e) => handleChange(e)} name="name"  value={formData.name} type="text"/>
             <label>Position:</label>
             <input onChange={(e) => handleChange(e)} name="position" value={formData.position} type="text"/>
@@ -66,4 +56,4 @@ function handleSubmit(e) {
     )
 }
 
-export default AddPlayerForm
+export default PlayerEditForm

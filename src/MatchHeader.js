@@ -1,6 +1,6 @@
 
 
-function MatchHeader({matches}) {
+function MatchHeader({matches, setToggle, toggle}) {
 
 
 
@@ -10,7 +10,7 @@ function MatchHeader({matches}) {
          <h1>All Matches</h1>
          <p>{matches.length} Matches</p>
          </div>
-         <button className="add-match-button">+ Add Match</button>
+         <button onClick={() => setToggle(!toggle)} className="add-match-button">+ Add Match</button>
         </header>
     )
 }

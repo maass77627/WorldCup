@@ -22,7 +22,7 @@ const [players, setPlayers] = useState([])
 const [stats, setStats] = useState([])
 const [teamFilter, setTeamFilter] = useState(null)
 const [playerSearch, setPlayerSearch] = useState("")
-const [photo, setPhoto] = useState("")
+// const [photo, setPhoto] = useState("")
 const apiKey = "057d82cda823962afbd449e2f3005f5e"
 
 function addTeam(team) {
@@ -35,32 +35,32 @@ function addPlayer(player) {
   setPlayers((prev) => [...prev, player])
 }
 
-function getPlayerPhoto(name, fullname) {
-  console.log(name)
-   const cleanName = name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-  // console.log(name)
-  // console.log(fullname)
-  fetch(`https://v3.football.api-sports.io/players/profiles?search=${cleanName}`, {
-  method: "GET",
-  headers: {
-    "x-apisports-key": apiKey
-  }
+// function getPlayerPhoto(name, fullname) {
+//   console.log(name)
+//    const cleanName = name
+//     .normalize("NFD")
+//     .replace(/[\u0300-\u036f]/g, "");
+//   // console.log(name)
+//   // console.log(fullname)
+//   fetch(`https://v3.football.api-sports.io/players/profiles?search=${cleanName}`, {
+//   method: "GET",
+//   headers: {
+//     "x-apisports-key": apiKey
+//   }
 
-})
-.then((res) => res.json())
-.then((json) => {
-  console.log(json.response)
-  const player = json.response.find((play) => play.player.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(fullname.toLowerCase()))
-  // let player = json.response.find((player) => player.player.name === fullname)
-  console.log(player)
-  if (player) {
-    console.log(player)
-    setPhoto(player.player.photo)
-  }
-})
-}
+// })
+// .then((res) => res.json())
+// .then((json) => {
+//   console.log(json.response)
+//   const player = json.response.find((play) => play.player.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(fullname.toLowerCase()))
+//   // let player = json.response.find((player) => player.player.name === fullname)
+//   console.log(player)
+//   if (player) {
+//     console.log(player)
+//     setPhoto(player.player.photo)
+//   }
+// })
+// }
 
 // }, [])
 // fetch("https://v3.football.api-sports.io/players/profiles?search=messi", {
@@ -126,10 +126,10 @@ fetch("http://localhost:9292/stats")
       <Routes>
       <Route path="/" element={<Home stats={stats} teams={teams} matches={matches}></Home>}></Route>
       <Route path="/teams" element={<TeamsPage addTeam={addTeam} teamFilter={teamFilter} setTeamFilter={setTeamFilter} teams={teams}></TeamsPage>}></Route>
-      <Route path="/team/:id" element={<TeamDetailPage addPlayer={addPlayer} teams={teams} ></TeamDetailPage>}></Route>
+      <Route path="/team/:id" element={<TeamDetailPage players={players} addPlayer={addPlayer} teams={teams} ></TeamDetailPage>}></Route>
       <Route path="/players" element={<PlayersPage playerSearch={playerSearch} setPlayerSearch={setPlayerSearch} players={players}></PlayersPage>}></Route>
-      <Route path="/matches" element={<MatchesPage matches={matches}></MatchesPage>}></Route>
-       <Route path="/playerdetails/:id" element={<PlayerDetailPage setPhoto={setPhoto} getPlayerPhoto={getPlayerPhoto} players={players} photo={photo}></PlayerDetailPage>}></Route>
+      <Route path="/matches" element={<MatchesPage setMatches={setMatches} matches={matches}></MatchesPage>}></Route>
+       <Route path="/playerdetails/:id" element={<PlayerDetailPage players={players}></PlayerDetailPage>}></Route>
 
       </Routes>
       

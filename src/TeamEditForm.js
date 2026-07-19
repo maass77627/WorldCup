@@ -36,6 +36,7 @@ function handleSubmit(e) {
 
     return (
      <form className="team-edit-form" onSubmit={(e) => handleSubmit(e)}>
+        Edit Team
         <label>Name:</label>
         <input onChange={(e) => handleChange(e)} type="text" name="name" value={formData.name}></input>
         <label>Group Name:</label>

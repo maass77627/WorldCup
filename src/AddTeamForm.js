@@ -46,6 +46,7 @@ function handleSubmit(e) {
 
     return (
         <form className="add-team-form" onSubmit={(e) => handleSubmit(e)}>
+            <h3>Add Team</h3>
             {errors.map((error) => (
         <p key={error}>
             {error}

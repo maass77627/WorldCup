@@ -389,9 +389,104 @@ color: green;
   background-color: blueviolet;
 }
 
+.add-match-form {
+  position: absolute;
+  padding: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(12, 102, 102);
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  border-radius: 20px;
+}
 
-@media (max-width: 450px) {
+.player-detail-profile {
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+}
+
+.player-detail-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .image-wrap {
+
+} */
+
+.player-edit-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: cadetblue;
+  border-radius: 25px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+@media (max-width: 480px) {
   .nav {
     flex-direction: column;
   }
+
+  .team-main {
+    grid-template-columns: 1fr;
+  }
+
+  .teams-page-header {
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+
+  }
+
+  .top-teams {
+    display: flex;
+    flex-direction: column;
+  justify-content: space-around;
+  /* gap: 30px; */
+
+  }
+
+  .main {
+  
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+
+.up-teams {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around;
+  align-items: center;
+  gap: 30px; */
+
+}
+
+.upcoming-card {
+  display: flex;
+  flex-direction: column;
+}
+}
+
+/* @media (max-width: 768px) {
+
+}
+
+@media (max-width: 992px) {
+
+} */

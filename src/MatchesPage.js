@@ -1,12 +1,26 @@
 import MatchHeader from "./MatchHeader"
+import { FaEdit, FaTrash } from "react-icons/fa";
+import AddMatchForm from "./AddMatchForm";
+import {useState} from "react"
+function MatchesPage({matches, setMatches}) {
+    const [toggle, setToggle] = useState(false)
+    const [editToggle, setEditToggle] = useState(false)
 
-function MatchesPage({matches}) {
+    function handleDelete(id) {
+        
+        fetch(`http://localhost:9292/matches/${id}`, {
+            method: "DELETE"
+        })
 
+        const updatedMatches = matches.filter((mat) => mat.id !== id)
+        setMatches(updatedMatches)
+        
+    }
 
 
     return (
         <div className="matches-page">
-            <MatchHeader matches={matches}></MatchHeader>
+            <MatchHeader toggle={toggle} setToggle={setToggle} matches={matches}></MatchHeader>
                  <table className="match-table">
                     <thead>
                       <tr>
@@ -32,13 +46,14 @@ function MatchesPage({matches}) {
                                     <td><div className="match-wrap"><img src={`https://flagsapi.com/${match.away_team.flag_code}/flat/64.png`}></img>{match.away_team.name}</div></td>
                                     <td>{match.stadium}</td>
                                     <td>{match.home_score} - {match.away_score}</td>
-                                    <td>{}</td>
+                                    <td><FaEdit onClick={() => setEditToggle(!editToggle)} ></FaEdit>< FaTrash   onClick={() => handleDelete(match.id)}/></td>
                                 </tr>
                             ))
                         }
 
                     </tbody>
                  </table>
+                 {toggle && <AddMatchForm></AddMatchForm>}
         </div>
     )
 }

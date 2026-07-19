@@ -1,9 +1,9 @@
-
-
+import {useState} from "react"
+import AddMatchForm from "./AddMatchForm"
 
 function TeamDetailMatches({team, teams}) {
 console.log(team)
-
+const [toggle, setToggle] = useState(false)
 
 
     return (
@@ -11,7 +11,7 @@ console.log(team)
 
             <header className="team-detail-matches-head">
             <h1>Matches</h1>
-            <button className="add-match-button">+ Add Match</button>
+            <button onClick={() => setToggle(!toggle)} className="add-match-button">+ Add Match</button>
         </header>
 
         <table className="matches-table">
@@ -59,6 +59,8 @@ console.log(team)
                 )})}
             </tbody>
         </table>
+
+        {toggle && <AddMatchForm></AddMatchForm>}
 
         </div>
 

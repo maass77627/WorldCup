@@ -4,7 +4,7 @@ import TeamDetailHeader from "./TeamDetailHeader"
 import TeamDetailPlayers from "./TeamDetailPlayers";
 import TeamDetailMatches from "./TeamDetailMatches";
 
-function TeamDetailPage({teams, addPlayer}) {
+function TeamDetailPage({teams, addPlayer, players}) {
     const [team, setTeam] = useState(null)
     const { id } = useParams()
 
@@ -24,7 +24,7 @@ return (
     <div className="team-detail-page">
 
         <TeamDetailHeader team={team}></TeamDetailHeader>
-        <TeamDetailPlayers addPlayer={addPlayer} team={team}></TeamDetailPlayers>
+        <TeamDetailPlayers players={players} addPlayer={addPlayer} team={team}></TeamDetailPlayers>
          <TeamDetailMatches teams={teams} team={team}></TeamDetailMatches>
     </div>
 
