@@ -20,7 +20,8 @@ function PlayerDetailProfile({player, imageSrc}) {
             <p>{player.position}</p>
 
              <p>{player.team.name}</p>
-             <p>{player.team.flag_code}</p>
+              <img src={`https://flagsapi.com/${player.team.flag_code}/flat/64.png`}></img>
+             {/* <p>{player.team.flag_code}</p> */}
              </div>
              <div className="image-wrap">
             <img src={imageSrc} alt="player"></img>

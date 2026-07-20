@@ -386,7 +386,7 @@ color: green;
 
 .player-detail-page {
   width: 100%;
-  background-color: blueviolet;
+  background-color: rgb(248, 247, 249);
 }
 
 .add-match-form {
@@ -423,6 +423,20 @@ color: green;
 } */
 
 .player-edit-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: cadetblue;
+  border-radius: 25px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.match-edit-form {
   position: absolute;
   top: 50%;
   left: 50%;

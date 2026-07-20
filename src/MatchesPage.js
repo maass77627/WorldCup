@@ -2,6 +2,7 @@ import MatchHeader from "./MatchHeader"
 import { FaEdit, FaTrash } from "react-icons/fa";
 import AddMatchForm from "./AddMatchForm";
 import {useState} from "react"
+import MatchEditForm from "./MatchEditForm"
 function MatchesPage({matches, setMatches}) {
     const [toggle, setToggle] = useState(false)
     const [editToggle, setEditToggle] = useState(false)
@@ -54,6 +55,7 @@ function MatchesPage({matches, setMatches}) {
                     </tbody>
                  </table>
                  {toggle && <AddMatchForm></AddMatchForm>}
+                 {editToggle && <MatchEditForm></MatchEditForm>}
         </div>
     )
 }
